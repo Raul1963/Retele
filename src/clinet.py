@@ -3,7 +3,7 @@ import socket
 import threading
 
 # Constantele pentru server și buffer
-SERVER_HOST = '192.168.0.108'  # Înlocuiește cu IP-ul serverului
+SERVER_HOST = '192.168.0.108'  # IP-ul serverului
 SERVER_PORT = 12345  # Portul de conectare la server
 BUFF_SIZE = 1024  # Dimensiunea bufferului pentru datele primite de la server
 
