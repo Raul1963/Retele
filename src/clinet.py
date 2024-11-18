@@ -24,7 +24,7 @@ def receive_data(client_socket):
 
     while game_running:
         data = client_socket.recv(BUFF_SIZE).decode()
-        print(data)
+        # print(data)
         if data.startswith("SHAPE"):
             _, color_r, color_g, color_b, x, y, radius = data.split()
             current_shape = ((int(color_r), int(color_g), int(color_b)), int(x), int(y), int(radius))
