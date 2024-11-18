@@ -2,7 +2,7 @@ import pygame
 import socket
 import threading
 
-SERVER_HOST = '192.168.1.109'  # Replace with server IP
+SERVER_HOST = '172.20.10.4'  # Replace with server IP
 SERVER_PORT = 12345
 BUFF_SIZE = 1024
 
@@ -24,13 +24,14 @@ def receive_data(client_socket):
 
     while game_running:
         data = client_socket.recv(BUFF_SIZE).decode()
+        print(data)
         if data.startswith("SHAPE"):
             _, color_r, color_g, color_b, x, y, radius = data.split()
             current_shape = ((int(color_r), int(color_g), int(color_b)), int(x), int(y), int(radius))
         elif data.startswith("SCORE"):
             _, score_value = data.split()
             score = int(score_value)
-        elif data == "GAME_OVER":
+        elif data.startswith("GAME_OVER"):
             print("Game over!")
             game_running = False
 
@@ -80,6 +81,7 @@ def main():
                         client_socket.send(f"CLICK {color[0]} {color[1]} {color[2]}\n".encode())
                         current_shape = None  # Clear the shape after a click
 
+        # print(game_running)
         pygame.display.flip()
 
     client_socket.close()
