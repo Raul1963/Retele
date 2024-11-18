@@ -2,7 +2,7 @@ import pygame
 import socket
 import threading
 
-SERVER_HOST = '172.20.10.4'  # Replace with server IP
+SERVER_HOST = '172.28.48.207'  # Replace with server IP
 SERVER_PORT = 12345
 BUFF_SIZE = 1024
 

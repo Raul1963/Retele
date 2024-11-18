@@ -12,7 +12,7 @@ public class GameServer {
     // Constants
     private static final int PORT = 12345; // Port on which the server listens
     private static final int SHAPE_LIFETIME = 2000; // Shape visibility duration in milliseconds
-    private static final int MAX_SCORE = 10; // Score required to win the game
+    private static final int MAX_SCORE = 50; // Score required to win the game
     private static final int SCREEN_WIDTH = 800; // Width of the screen
     private static final int SCREEN_HEIGHT = 600; // Height of the screen
 
@@ -131,7 +131,7 @@ public class GameServer {
                 } else if (r == 255 && g == 0 && b == 0) {
                     score -= 10; // Red shape = -10 points
                 }
-
+                out.println("SCORE "+ score);
                 System.out.println("Updated score for client " + clientSocket.getRemoteSocketAddress() + ": " + score);
             } catch (NumberFormatException e) {
                 System.out.println("Error parsing client response: " + response);
